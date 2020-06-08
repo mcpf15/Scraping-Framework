@@ -1,0 +1,15 @@
+{
+  "url": "http://old.reddit.com",
+  "scrape":{
+    "selector": "p.title>a",
+    "field_mappings":{
+      "title": "innerText" 
+    }
+  },
+  "next_page": [
+    {
+      "command": "click",
+      "selector": "span.next-button>a"
+    }
+  ]
+}
