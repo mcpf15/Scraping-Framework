@@ -22,14 +22,14 @@ class BaseScraper(object):
 
   def scrape(self):
     selector = self.config['scrape']['selector']
-    links = self.driver.find_elements_by_css_selector(selector)
+    elements = self.driver.find_elements_by_css_selector(selector)
     field_mappings = self.config['scrape']['field_mappings']
     self.scrape_data += [
       {
-        key: link.get_property(value)
+        key: element.get_property(value)
         for key, value in field_mappings.items()
       }
-      for link in links
+      for element in elements
     ]
   def store(self):
     csv_columns = self.config['scrape']['field_mappings'].keys()
